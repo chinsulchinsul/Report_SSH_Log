@@ -1,0 +1,31 @@
+---
+- hosts: client
+  become: true
+  tasks:
+    - name: Installing python-pip and mysql-connector
+      script: /opt/Report_SSH_Log/ansible/newclient_batch.sh
+	  
+    - name: Copying python file to server
+      copy: 
+        src: ../{{ item }} 
+        dest: /usr/local/bin/{{ item }}
+      with_items:
+        - Client.py
+        - Reporter.py
+        - Server.py
+
+    - name: Making file executable
+      file: 
+        path: /usr/local/bin/{{ item }}
+        owner: root
+        group: root
+        mode: 0755
+      with_items:
+        - Client.py
+        - Reporter.py
+      
+    - name: starting client
+      shell: /usr/local/bin/Client.py >> /var/log/ListenClient.log 2>&1 &
+      become: true
+      async: 10
+      poll: 0

@@ -56,6 +56,9 @@
 - hosts: client
   become: true
   tasks:
+    - name: Installing python-pip and mysql-connector
+      script: /opt/Report_SSH_Log/ansible/newclient_batch.sh
+    
     - name: Copying python file to server
       copy: 
         src: ../{{ item }} 

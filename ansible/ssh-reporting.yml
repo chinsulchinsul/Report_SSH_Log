@@ -2,7 +2,7 @@
 - hosts: server
   become: true
   vars:
-    mysql_root_password: P@ssw0rd123!
+    mysql_root_password: strong_password
   tasks:
     - name: Updating apt cache 
       apt: 
@@ -56,17 +56,6 @@
 - hosts: client
   become: true
   tasks:
-    - name: Install necessary packages
-      apt: name={{ item }} update_cache=yes cache_valid_time=36000 state=present
-      with_items:
-        - python-pip
-		
-    - name: Installing python MySQL connector
-      pip: 
-        name: "{{ item }}"
-      with_items:
-        - mysql-connector
-
     - name: Copying python file to server
       copy: 
         src: ../{{ item }} 

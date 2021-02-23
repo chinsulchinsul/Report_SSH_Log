@@ -26,14 +26,14 @@ sudo git checkout .
 sudo chmod 755 /opt/Report_SSH_Log #for_learning_purpose
 ```
 - After installed
-```python
-bash first_install.sh
-```
-- Will prompted 
+    ```python
+    bash first_install.sh
+    ```
+- Will prompt for input IP Server :
     ```python
     Please Input IP Server :
     ```
-  You need to entering an IP Server, example : 
+  You need to entering an IP Server, example (192.168.0.110 as your IP Server) : 
     ```python
     Please Input IP Server : 192.168.0.110
     ```
@@ -45,11 +45,11 @@ bash first_install.sh
     ```python
     root@192.168.0.110's password:
     ```
-- Will prompted 
+- Will prompt for input IP Client :
     ```python
     Please Input IP Client :
     ```
-  You need to entering an IP Client, example : 
+  You need to entering an IP Client, example (192.168.0.112 as your IP Client) : 
     ```python
     Please Input IP Server : 192.168.0.112
     ```
@@ -61,7 +61,7 @@ bash first_install.sh
     ```python
     root@192.168.0.112's password:
     ```
-- If there's no error, last prompt will showing 
+- Please wait until finished, If there's no error, last prompt will showing 
     ```python
      --------------------------------
     | Metrics for ssh log-in attempts|
